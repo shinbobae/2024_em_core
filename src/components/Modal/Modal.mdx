@@ -1,0 +1,126 @@
+import { Canvas, Meta, Controls, Story, Stories } from '@storybook/blocks';
+
+import * as ModalStories from './Modal.stories';
+import Modal from './Modal';
+
+<Meta  title="components/Modal" component={Modal} />
+
+# Modal System
+
+모달을 사용할 때는 프로젝트 별로 `App` 호출 컴포넌트 단계에서의 설정이 필요합니다.
+- `ModalProvider`로 사용되는 컴포넌트들을 감쌉니다.
+- 컴포넌트들이 렌더되는 `#root` 하위에 `#modal`를 작성해 줍니다.
+- 표현되는 모달의 정보는 `ModalProvider`에서, 렌더는 `#modal`에서 관리합니다.
+
+예: onli frontend/App.tsx
+```
+function App() {
+  return (
+    <>
+      <ConfigProvider theme={theme}>
+        <ModalProvider>
+          <GlobalStyle />
+          <div id="modal" />
+          <AppLayout>
+            <AppRouter />
+          </AppLayout>
+        </ModalProvider>
+      </ConfigProvider>
+    </>
+  );
+}
+
+export default App;
+```
+이제 `#modal` 안에서 렌더 됩니다.
+<br/><br/><br/>
+
+
+## API 사용
+
+`Modal` 컴포넌트는 `ReactDOM.createPortal`와 `context`를 활용해 만들어 졌습니다.
+
+`useModal`, `useAlert`, `useConfirm` 커스텀 훅을 사용하거나 컴포넌트를 불러와서 사용합니다.
+
+### useModal
+<Story of={ModalStories.Default} />
+
+```
+const { openModal } = useModal();
+openModal({
+  title: '모달',
+  content: <div>모달 콘텐츠</div>
+});
+```
+
+### useAlert, useConfirm
+
+- `modal`은 배경을 클릭해도 닫히지만, 확인버튼이 있는 `alert`, `confirm`은 확인 또는 취소 버튼으로만 닫을 수 있습니다.
+
+<Story of={ModalStories.AlertConfirm} />
+
+```
+const { openAlert } = useAlert();
+openAlert({
+  content: <>
+    안내 내용 작성 <br/>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  </>,
+  ok: () => window.alert("확인"),
+});
+```
+```
+const { openConfirm } = useConfirm();
+openConfirm({
+  content: <>
+    확인 내용 작성 <br/>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  </>,
+  ok: () => window.alert("확인"),
+});
+```
+
+## 컴포넌트 사용
+Modal, Alert, Confirm 을 UI 컴포넌트로도 사용할 수 있습니다.
+<Story of={ModalStories.ModalUI} />
+
+- 헤더, 바디, 푸터의 영역 등 더 섬세한 UI 조작이 필요할 경우, `<Popup />` 을 확인해 주세요.
+
+```
+const [isOpen, setIsOpen] = useState(false);
+<Button onClick={() => setIsOpen(true)}>모달열기</Button>
+
+{isOpen &&
+  <Modal
+    title="타이틀"
+    content={<p>모달은 이렇게도 쓸 수 있습니다. <br/>코드를 함께 보면 좋습니다.</p>}
+    close={() => setIsOpen(false)}
+  />
+}
+{isOpen &&
+  <Alert
+    title="알림 타이틀"
+    content={<p>모달은 이렇게도 쓸 수 있습니다. <br/>코드를 함께 보면 좋습니다.</p>}
+    close={() => setIsOpen(false)}
+  />
+}
+{isOpen &&
+  <Confirm
+    title="확인 타이틀"
+    content={<p>모달은 이렇게도 쓸 수 있습니다. <br/>코드를 함께 보면 좋습니다.</p>}
+    close={() => setIsOpen(false)}
+  />
+}
+```
+
+## 사용 예시
+모달 컨트롤 키를 확인하세요.
+<Controls of={ModalStories.Default} />
+
+### 멀티 모달 및 한 번에 닫기
+<Canvas of={ModalStories.MultiModal} />
+
+### 컴포넌트 외 util 모달
+컴포넌트 외의 환경에서도 사용할 수 있도록 만들었습니다.
+
+util 디렉토리를 확인하세요.

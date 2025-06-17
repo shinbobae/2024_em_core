@@ -1,0 +1,16 @@
+import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
+import { palette } from './index';
+
+<Meta title="colors/palette" />
+
+# Palette
+
+## 색상 목록
+<ColorPalette>
+  <ColorItem title="primary" subtitle="기본" colors={{ primary: palette.primary }} />
+  <ColorItem title="success" subtitle="성공" colors={{ success: palette.success }} />
+  <ColorItem title="warning" subtitle="경고" colors={{ warning: palette.warning }} />
+  <ColorItem title="danger" subtitle="위험" colors={{ danger: palette.danger }} />
+  <ColorItem title="info" subtitle="안내" colors={{ info: palette.info }} />
+  <ColorItem title="black" subtitle="일반" colors={{ black: palette.black }} />
+</ColorPalette>

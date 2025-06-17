@@ -1,0 +1,34 @@
+import { ColorItem, ColorPalette, Meta } from '@storybook/blocks';
+import { colors } from '.';
+
+<Meta title="colors/style" />
+
+# Colors
+
+export function isSimpleColor(key, value) {
+  return typeof value === 'string' && (value.match(/^#/) || value.match(/^rgb/) || key.match(/color/i));
+}
+
+export function RenderPaletteRecursively(items) {
+  return Object.entries(items).map(([mainKey, colors]) => {
+    if (isSimpleColor(mainKey, colors)) {
+      return <ColorItem key={mainKey} title={mainKey} subtitle="" colors={{ [mainKey]: colors }} />;
+    } else if (typeof colors === 'object') {
+      return (
+        <ColorItem
+          key={mainKey}
+          title={mainKey}
+          subtitle=""
+          colors={Object.entries(colors)
+            .sort(([a], [b]) => b - a)
+            .reduce((acc, [key, value]) => {
+              return isSimpleColor(key, value) ? { ...acc, [`${mainKey}${key}`]: value } : acc;
+            }, {})}
+        />
+      );
+    } else return null;
+  });
+}
+
+## 색상 목록
+<ColorPalette>{RenderPaletteRecursively(colors)}</ColorPalette>

@@ -1,0 +1,127 @@
+import { Canvas, Meta, Markdown } from '@storybook/blocks';
+
+import * as ModalStories from './Modal.stories';
+import Modal from './Modal';
+
+<Meta  title="test/Modal" component={Modal} />
+
+# Modal
+
+<Markdown>
+  {`| 테스트번호 | Prop 명 | Props 설정 내용 | Prop 타입 | Prop 값 | 기대 결과 |
+    | -------- | -------- | -------- | ------------ | ------------ | ------------ |
+    | EMCORE-TEST-0108 | title   | 모달 헤더에 들어갈 문구 지정    | string          |              -             | 빈 문구 및 헤더 영역 미 표현           |
+    | EMCORE-TEST-0109 | title   | 모달 헤더에 들어갈 문구 지정    | string          |            모달            | 헤더 영역 및 문구 표현                 |
+    | EMCORE-TEST-0110 | content | 모달 바디에 들어갈 콘텐츠 지정  | React.ReactNode |              -             | 빈 영역 노출                           |
+    | EMCORE-TEST-0111 | content | 모달 바디에 들어갈 콘텐츠 지정  | React.ReactNode | <div>Modal component</div> | 해당 div 컴포넌트 표현                 |
+    | EMCORE-TEST-0112 | title   | alert 헤더에 들어가는 문구 지정 | string          |            -            | 값 미 지정 시, 기본 텍스트 '안내' 표현 |
+    | EMCORE-TEST-0113 | title   | alert 헤더에 들어가는 문구 지정 | string          |          안내 모달         | 지정한 텍스트 표현                     |
+    | EMCORE-TEST-0114 | content | 모달 바디에 들어갈 콘텐츠 지정  | React.ReactNode |              -             | 빈 영역 노출                           |
+    | EMCORE-TEST-0115 | content | 모달 바디에 들어갈 콘텐츠 지정  | React.ReactNode | <div>Modal component</div> | 해당 div 컴포넌트 표현                 |
+    | EMCORE-TEST-0116 | okText  | 확인버튼 텍스트 지정            | string          |              -             | 값 미지정 시, 기본 텍스트 '확인' 표현  |
+    | EMCORE-TEST-0117 | okText  | 확인버튼 텍스트 지정            | string          |      확인 버튼 텍스트      | 지정한 텍스트 표현                     |
+    | EMCORE-TEST-0118 | ok      | 확인 동작 지정                  | () => {}        |              -             | 동작 미지정 시, 모달 닫기만 동작       |
+    | EMCORE-TEST-0119 | ok      | 확인 동작 지정                  | () => {}        |     () => alert('확인')    | 지정한 동작 실행 및 모달 닫            |
+    | EMCORE-TEST-0120 	| title      	| confirm 헤더에 들어가는 문구 지정 	| string          	|            -            	| 값 미 지정 시, 기본 텍스트 '확인' 표현 	|
+    | EMCORE-TEST-0121 	| title      	| confirm 헤더에 들어가는 문구 지정 	| string          	|          확인 모달         	| 지정한 텍스트 표현                     	|
+    | EMCORE-TEST-0122 	| content    	| 모달 바디에 들어갈 콘텐츠 지정  	| React.ReactNode 	|              -             	| 빈 영역 노출                           	|
+    | EMCORE-TEST-0123 	| content    	| 모달 바디에 들어갈 콘텐츠 지정  	| React.ReactNode 	| <div>Modal component</div> 	| 해당 div 컴포넌트 표현                 	|
+    | EMCORE-TEST-0124 	| okText     	| 확인버튼 텍스트 지정            	| string          	|              -             	| 값 미지정 시, 기본 텍스트 '확인' 표현  	|
+    | EMCORE-TEST-0125 	| okText     	| 확인버튼 텍스트 지정            	| string          	|      확인 버튼 텍스트      	| 지정한 텍스트 표현                     	|
+    | EMCORE-TEST-0126 	| ok         	| 확인 동작 지정                  	| () => {}        	|              -             	| 동작 미지정 시, 모달 닫기만 동작       	|
+    | EMCORE-TEST-0127 	| ok         	| 확인 동작 지정                  	| () => {}        	|     () => alert('확인')    	| 지정한 동작 실행 및 모달 닫            	|
+    | EMCORE-TEST-0128 	| cancelText 	| 취소버튼 텍스트 지정            	| string          	|              -             	| 값 미지정 시, 기본 텍스트 '취소' 표현  	|
+    | EMCORE-TEST-0129 	| cancelText 	| 취소버튼 텍스트 지정            	| string          	|      취소 버튼 텍스트      	| 지정한 텍스트 표현                     	|
+`}
+</Markdown>
+
+## Modal
+### EMCORE-TEST-0108
+modal title null(default)
+<Canvas of={ModalStories.TEST0108} />
+
+### EMCORE-TEST-0109
+modal title '모달'
+<Canvas of={ModalStories.TEST0109} />
+
+### EMCORE-TEST-0110
+modal content null(default)
+<Canvas of={ModalStories.TEST0110} />
+
+### EMCORE-TEST-0111
+modal content `<div>Modal component</div>`
+<Canvas of={ModalStories.TEST0111} />
+
+## Alert
+### EMCORE-TEST-0112
+alert title null(default '안내')
+<Canvas of={ModalStories.TEST0112} />
+
+### EMCORE-TEST-0113
+alert title '안내 모달'
+<Canvas of={ModalStories.TEST0113} />
+
+### EMCORE-TEST-0114
+alert content null(default)
+<Canvas of={ModalStories.TEST0114} />
+
+### EMCORE-TEST-0115
+alert content `<div>Modal component</div>`
+<Canvas of={ModalStories.TEST0115} />
+
+### EMCORE-TEST-0116
+alert okText null (default "확인")
+<Canvas of={ModalStories.TEST0116} />
+
+### EMCORE-TEST-0117
+alert okText "확인 버튼 텍스트"
+<Canvas of={ModalStories.TEST0117} />
+
+### EMCORE-TEST-0118
+alert ok event null(default only close)
+<Canvas of={ModalStories.TEST0118} />
+
+### EMCORE-TEST-0119
+alert ok event alert('확인")
+<Canvas of={ModalStories.TEST0119} />
+
+## Confirm
+### EMCORE-TEST-0120
+confirm title null(default '안내')
+<Canvas of={ModalStories.TEST0120} />
+
+### EMCORE-TEST-0121
+confirm title '안내 모달'
+<Canvas of={ModalStories.TEST0121} />
+
+### EMCORE-TEST-0122
+confirm content null(default)
+<Canvas of={ModalStories.TEST0122} />
+
+### EMCORE-TEST-0123
+confirm content `<div>Modal component</div>`
+<Canvas of={ModalStories.TEST0123} />
+
+### EMCORE-TEST-0124
+confirm okText null (default "확인")
+<Canvas of={ModalStories.TEST0124} />
+
+### EMCORE-TEST-0125
+confirm okText "확인 버튼 텍스트"
+<Canvas of={ModalStories.TEST0125} />
+
+### EMCORE-TEST-0126
+confirm ok event null(default only close)
+<Canvas of={ModalStories.TEST0126} />
+
+### EMCORE-TEST-01127
+confirm ok event alert('확인")
+<Canvas of={ModalStories.TEST0127} />
+
+### EMCORE-TEST-0128
+confirm cancelText null(default only close)
+<Canvas of={ModalStories.TEST0128} />
+
+### EMCORE-TEST-01129
+confirm cancelText '취소 버튼 텍스트'
+<Canvas of={ModalStories.TEST0129} />

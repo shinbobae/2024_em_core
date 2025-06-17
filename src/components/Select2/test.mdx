@@ -1,0 +1,60 @@
+import { Canvas, Meta, Markdown } from '@storybook/blocks';
+import * as Select2Stories from './Select2.stories';
+import { Select2 } from './index';
+
+<Meta title="test/Select2" component={Select2} />
+
+# Select2
+
+
+<Markdown>
+  {`| 테스트번호 | Prop 명 | Props 설정 내용 | Prop 타입 | Prop 값 | 기대 결과 |
+    | -------- | -------- | -------- | ------------ | ------------ | ------------ |
+    | EMCORE-TEST-0099 | placeholder  | 선택된 값이 없을 때 노출되는 텍스트        | string                                                                       |                                                                                                                           placeholder                                                                                                                           | 선택된 값이 없을 때, 지정한 텍스트 노출         |
+    | EMCORE-TEST-0100 | optionList   | 지정 옵션 목록 나열                        | optionList: { label: string; value: string, number; disabled?: boolean }[] | [   { label: '5의 라벨', value: 5 },   { label: '6라벨', value: 6 , disabled: true},   { label: '7라벨', value: 7 },   { label: '8라벨', value: 8 },   { label: '9라벨', value: 55 },   { label: '565라벨', value: 565 },   { label: '255라벨', value: 255 }, ] | 지정한 옵션 목록 표현                           |
+    | EMCORE-TEST-0101 | disabled     | select 자체 disabled 설정                  | Boolean                                                                      |                                                                                                                               TRUE                                                                                                                              | select 선택 비활성화                            |
+    | EMCORE-TEST-0102 | hideDisabled | disabled 키가 포함된 옵션의 노출 여부 설정 | Boolean                                                                      |                                                                                                                               TRUE                                                                                                                              | disabled 키가 포함된 옵션 비노출                |
+    | EMCORE-TEST-0103 | multiple     | 다중선택 사용 여부 지정                    | Boolean                                                                      |                                                                                                                               FALSE                                                                                                                              | 비활성화 시, 단일 select 가능                     |
+    | EMCORE-TEST-0104 | multiple     | 다중선택 사용 여부 지정                    | Boolean                                                                      |                                                                                                                               TRUE                                                                                                                              | 활성화 시, 다중 select 가능                     |
+    | EMCORE-TEST-0105 | isSearch     | 옵션 검색 기능 활성화 여부                 | Boolean                                                                      |                                                                                                                               TRUE                                                                                                                              | 활성화 시, 검색 입력창 활성화 및 옵션 검색 가능 |
+    | EMCORE-TEST-0106 | block        | block 태그가 된 select                     | Boolean                                                                      |                                                                                                                               TRUE                                                                                                                              | 활성화 시, 영역의 전체 너비 차지                |
+    | EMCORE-TEST-0107 | status       | select의 상태 표현                         | string                                                                       |                                                                                                                              Error                                                                                                                              | 지정 시, 테두리 붉은 표현으로 에러 상태 표현    |
+  `}
+</Markdown>
+
+## placeholder
+### EMCORE-TEST-0099
+<Canvas of={Select2Stories.Default} />
+
+## optionList
+### EMCORE-TEST-0100
+<Canvas of={Select2Stories.OptionList} />
+
+## disabled
+### EMCORE-TEST-0101
+<Canvas of={Select2Stories.Disabled} />
+
+## hideDisabled
+### EMCORE-TEST-0102
+<Canvas of={Select2Stories.HideDisabled} />
+
+## multiple
+### EMCORE-TEST-0103
+### EMCORE-TEST-0104
+multiple: false
+<Canvas of={Select2Stories.SingleSelect} />
+multiple: true
+<Canvas of={Select2Stories.MultiValueSelect} />
+
+## isSearch
+### EMCORE-TEST-0105
+<Canvas of={Select2Stories.Searchable} />
+
+## block
+### EMCORE-TEST-0106
+<Canvas of={Select2Stories.Block} />
+
+## status
+### EMCORE-TEST-0107
+status: error
+<Canvas of={Select2Stories.StatusError} />

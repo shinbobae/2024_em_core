@@ -1,0 +1,84 @@
+import { Canvas, Controls, Markdown, Meta, Story } from '@storybook/blocks';
+
+import * as TagStories from './Tag.stories';
+import Tag from './index';
+
+<Meta
+  title="test/Tag"
+  component={Tag}
+/>
+
+# Tag
+
+`Tag`컴포넌트의 테스트 케이스
+
+
+
+<Markdown>
+  {`| 테스트번호 | Prop 명 | Props 설정 내용 | Prop 타입 | Prop 값 | 기대 결과 |
+    | -------- | -------- | -------- | ------------ | ------------ | ------------ |
+    | EMCORE-TEST-0077 | children     | 태그의 내용  | React.ReactNode                                        |            "default"            | 태그에 "default" 내용 표현             |
+    | EMCORE-TEST-0078 | variant      | 태그의 형태를 결정  | outlined, filled, borderless   |        defalut = outlined       | 아웃라인과 연한 배경을 가진 형태의 태그|
+    | EMCORE-TEST-0079 | variant      | 태그의 형태를 결정  | outlined, filled, borderless   |              filled             | 진한 배경을 가진 형태의 태그           |
+    | EMCORE-TEST-0080 | variant      | 태그의 형태를 결정  | outlined, filled, borderless   |            borderless           | 아웃라인 없이 연한 배경을 가진 형태의 태그                     |
+    | EMCORE-TEST-0081 |  color       | 태그의 색상을 결정  | primary, secondary, danger, warning, info, 또는 컬러값 |             primary             | 테마컬러 또는 지정한 색상값 표현       |
+    | EMCORE-TEST-0082 |  color       | 태그의 색상을 결정  | primary, secondary, danger, warning, info, 또는 컬러값 |            secondary            | 테마컬러 또는 지정한 색상값 표현       |
+    | EMCORE-TEST-0083 |  color       | 태그의 색상을 결정  | primary, secondary, danger, warning, info, 또는 컬러값 |              danger             | 테마컬러 또는 지정한 색상값 표현       |
+    | EMCORE-TEST-0084 |  color       | 태그의 색상을 결정  | primary, secondary, danger, warning, info, 또는 컬러값 |             warning             | 테마컬러 또는 지정한 색상값 표현       |
+    | EMCORE-TEST-0085 |  color       | 태그의 색상을 결정  | primary, secondary, danger, warning, info, 또는 컬러값 |               info              | 테마컬러 또는 지정한 색상값 표현       |
+    | EMCORE-TEST-0086 |  color       | 태그의 색상을 결정  | primary, secondary, danger, warning, info, 또는 컬러값 |              orange             | 테마컬러 또는 지정한 색상값 표현       |
+    | EMCORE-TEST-0087 |  color       | 태그의 색상을 결정  | primary, secondary, danger, warning, info, 또는 컬러값 |             #00ff4c             | 테마컬러 또는 지정한 색상값 표현       |
+    | EMCORE-TEST-0088 | size         | 태그의 크기를 결정  | sm, md, lg  |                sm               | 지정한 크기로 태그 표현       |
+    | EMCORE-TEST-0089 | size         | 태그의 크기를 결정  | sm, md, lg  |                md               | 지정한 크기로 태그 표현       |
+    | EMCORE-TEST-0090 | size         | 태그의 크기를 결정  | sm, md, lg          |                                 | 입력한 정규식 검사   |
+    | EMCORE-TEST-0091 | onClose      | 태그 닫기 버튼 활성화 및 닫기 버튼 동작 지정  | () => {} |  () => { window.alert('닫기 버튼 클릭 동작') } | 닫기 버튼 클릭시 등록 동작 실행     |
+    | EMCORE-TEST-0092 | onClick      | 태그 전체 클릭 활성화 및 클릭 동작 지정  | () => {}     |  () => window.alert('태그 클릭 동작') | 태그 클릭시 등록 동작 실행      |
+  `}
+</Markdown>
+
+
+---
+
+## children
+### EMCORE-TEST-0077
+<Canvas of={TagStories.Default} />
+
+## variant
+### EMCORE-TEST-0078
+`outline`
+<Canvas of={TagStories.VariantOutlined} />
+
+### EMCORE-TEST-0079
+`filled`
+<Canvas of={TagStories.VariantFilled} />
+
+### EMCORE-TEST-0080
+`borderless`
+<Canvas of={TagStories.VariantBorderless} />
+
+
+## color
+### EMCORE-TEST-0081
+### EMCORE-TEST-0082
+### EMCORE-TEST-0083
+### EMCORE-TEST-0084
+### EMCORE-TEST-0085
+### EMCORE-TEST-0086
+### EMCORE-TEST-0087
+`primary` `secondary` `danger` `warning` `info` `orange` `#00ff4c`
+<Canvas of={TagStories.ColorVariation} />
+
+## size
+### EMCORE-TEST-0088
+### EMCORE-TEST-0089
+### EMCORE-TEST-0090
+`sm` `md` `lg`
+<Canvas of={TagStories.Size} />
+
+## onClose
+### EMCORE-TEST-0091
+<Canvas of={TagStories.onClose} />
+
+## onClick
+### EMCORE-TEST-0092
+<Canvas of={TagStories.onClick} />

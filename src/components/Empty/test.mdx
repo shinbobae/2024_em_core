@@ -1,0 +1,16 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+
+import * as EmptyStories from './Empty.stories';
+import Empty from './index';
+
+<Meta
+  title="test/Empty"
+  component={Empty}
+/>
+
+# Empty
+
+`Empty`컴포넌트의 테스트 케이스
+
+<Canvas of={EmptyStories.Default} />

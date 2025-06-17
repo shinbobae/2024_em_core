@@ -1,0 +1,101 @@
+{
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+
+  "__comment_importOrder": "정렬순서",
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/api$",
+    "^@/assets$",
+    "^@/components$",
+    "^@/layouts$",
+    "^@/routes$",
+    "^@/stores$",
+    "^@/utils$",
+    "^@/views$",
+    "^@/styles$",
+    "^[./]"
+  ],
+  "__comment_importOrderSeparation": "각 범주마다 공백 표현 (true: 사용, false: 미사용)",
+  "importOrderSeparation": true,
+
+  "__comment_importOrderSortSpecifiers": "설정한 범주 내에서 정렬을 할지 말지를 결정하는 옵션 (true: 사용, false: 미사용)",
+  "importOrderSortSpecifiers": true,
+
+  "__comment_useTabs": "탭 사용 여부 (true: 사용, false: 미사용)",
+  "useTabs": false,
+
+  "__comment_semi": "세미콜론 사용 여부 (true: 사용, false: 미사용)",
+  "semi": true,
+
+  "__comment_singleQuote": "작은 따옴표 사용 여부 (true: 사용, false: 미사용)",
+  "singleQuote": true,
+
+  "__comment_arrowParens": "화살표 함수 괄호 강제 여부 ('always': 항상, 'avoid': 피하기)",
+  "arrowParens": "avoid",
+
+  "__comment_bracketSpacing": "객체 리터럴에서 공백 사용 여부 (true: 사용, false: 미사용)",
+  "bracketSpacing": true,
+
+  "__comment_endOfLine": "끝에 줄 바꿈 설정 ('auto': 자동, 'lf': LF, 'crlf': CRLF)",
+  "endOfLine": "auto",
+
+  "__comment_quoteProps": "따옴표 속성 강제 여부 ('as-needed': 필요에 따라)",
+  "quoteProps": "as-needed",
+
+  "__comment_htmlWhitespaceSensitivity": "HTML 공백 감도 설정 ('css': CSS 속성에 따름)",
+  "htmlWhitespaceSensitivity": "strict",
+
+  "__comment_jsxBracketSameLine": "JSX 괄호 위치 설정 (true: 같은 줄, false: 다른 줄)",
+  "jsxBracketSameLine": false,
+
+  "__comment_jsxSingleQuote": "JSX 작은 따옴표 사용 여부 (true: 사용, false: 미사용)",
+  "jsxSingleQuote": false,
+
+  "__comment_printWidth": "출력 폭 설정 (최대 800)",
+  "printWidth": 80,
+
+  "__comment_proseWrap": "텍스트 포맷 유지 여부 ('preserve': 유지)",
+  "proseWrap": "preserve",
+
+  "__comment_tabWidth": "탭 너비 설정 (기본 2)",
+  "tabWidth": 2,
+
+  "__comment_trailingComma": "후행 콤마 설정 ('all': 모든 항목)",
+  "trailingComma": "all",
+
+  "__comment_vueIndentScriptAndStyle": "Vue 스크립트 및 스타일 들여쓰기 사용 여부 (true: 사용, false: 미사용)",
+  "vueIndentScriptAndStyle": true,
+
+  "__comment_rangeStart": "포맷 시작 범위 설정 (기본 0)",
+  "rangeStart": 0,
+
+  "__comment_requirePragma": "프라그마 필요 여부 (true: 필요, false: 불필요)",
+  "requirePragma": false,
+
+  "__comment_insertPragma": "프라그마 삽입 여부 (true: 삽입, false: 미삽입)",
+  "insertPragma": false,
+
+  "__comment_overrides": "특정 파일 유형에 대한 오버라이드 설정, JSON 파일 파서 설정, SCSS 파일 파서 설정, HTML 파일 파서 설정",
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "*.scss",
+      "options": { "parser": "scss" }
+    },
+    {
+      "files": "*.html",
+      "options": { "parser": "html" }
+    },
+    {
+      "files": "*.stories.tsx",
+      "options": { "parser": "typescript" }
+    },
+    {
+      "files": "*.style.ts",
+      "options": { "parser": "typescript" }
+    }
+  ]
+}

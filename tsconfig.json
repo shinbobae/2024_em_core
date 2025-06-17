@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // JavaScript 코드의 ECMAScript 버전을 설정하는 옵션
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], // TypeScript가 어떤 내장 API(예: Array.map, Promise 등)와 전역 객체(예: document, console 등)를 인식해야 하는지를 결정하는 옵션
+    "module": "ESNext", //JavaScript 모듈을 생성하는 방식을 설정하는 옵션
+    "moduleResolution": "node", // 모듈을 해석하는 방식을 설정하는 옵션
+    "esModuleInterop": true, // CommonJS 모듈을 ES6 모듈처럼 사용할 수 있게 해주는 옵션
+    "outDir": "dist", // 컴파일된 파일을 저장할 디렉터리를 설정하는 옵션
+    "rootDir": "src", // 컴파일할 파일을 찾을 디렉터리를 설정하는 옵션
+
+    "declaration": true, // .d.ts 파일을 생성하는 옵션
+    "declarationMap": true, // .d.ts.map 파일을 생성하는 옵션
+    "sourceMap": true, // 소스맵 파일을 생성하는 옵션
+
+//    "composite": true, // 프로젝트를 컴파일할 때 이전에 컴파일된 출력을 재사용하는 옵션
+//    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+//    "useDefineForClassFields": true,
+//    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "resolveJsonModule": true, // JSON 파일을 import할 수 있는 옵션
+    "isolatedModules": true, // 파일 간의 의존성을 제한하는 옵션(모든 파일을 분리된 모듈로서 처리)
+    "moduleDetection": "force", // 모듈 감지를 강제하는 옵션
+    "noEmit": false, // 컴파일을 실행하지만 JavaScript 출력을 제거함
+    "jsx": "react-jsx", // JSX 코드를 어떻게 해석할지를 설정하는 옵션
+
+    /* Linting */
+    "strict": true, // 엄격한 타입 검사를 활성화하는 옵션
+    "noUnusedLocals": true, // 사용되지 않는 지역 변수를 허용하지 않는 옵션
+    "noUnusedParameters": false, // 사용되지 않는 매개변수를 허용하지 않는 옵션
+    "noFallthroughCasesInSwitch": true, // switch문에서 case 절이 누락되는 것을 방지하는 옵션
+    "forceConsistentCasingInFileNames": true, // 파일 이름의 일관성을 강제하는 옵션
+
+    /* emotion config */
+    "jsxImportSource": "@emotion/react",
+    "types": ["@emotion/react/types/css-prop", "vite-plugin-svgr/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx",
+    "src/custom.d.ts"
+  ],
+//  "references": [{ "path": "./tsconfig.node.json" }]
+}

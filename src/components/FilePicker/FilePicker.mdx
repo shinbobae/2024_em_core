@@ -1,0 +1,22 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import * as FilePickerStories from './FilePicker.stories';
+
+<Meta title="components/FilePicker" />
+
+# FilePicker
+
+## playground
+<Canvas of={FilePickerStories.Default} />
+<Controls of={FilePickerStories.Default} />
+
+### children
+원하는 파일 피커의 형태를 넣을 수 있습니다.
+<Canvas of={FilePickerStories.CustomChildren} />
+
+### button text
+원하는 버튼 텍스트를 입력할 수 있습니다.
+<Canvas of={FilePickerStories.CustomButtonText} />
+
+### accept
+accept: "image/*"
+<Canvas of={FilePickerStories.AcceptExample} />

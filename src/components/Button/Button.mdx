@@ -1,0 +1,14 @@
+import { Canvas, Controls, Markdown, Meta } from '@storybook/blocks';
+
+import * as ButtonStories from './Button.stories';
+import Button from './index';
+
+<Meta title="components/Button" />
+
+# Button
+
+`Button`컴포넌트의 크기는 `children`의 내용에 의해 결정됩니다.
+
+<Canvas of={ButtonStories.Default} />
+<Controls of={ButtonStories.Default} />
+

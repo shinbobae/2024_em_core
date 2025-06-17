@@ -1,0 +1,137 @@
+import { Canvas, Controls, Markdown, Meta } from '@storybook/blocks';
+
+import * as ButtonStories from './Button.stories';
+import Button from './index';
+
+<Meta
+  title="test/Button"
+  component={Button}
+  argTypes={{
+    children: {
+      description: '버튼의 내용을 작성하세요.',
+      table: { type: { summary: 'text' }, },
+      control: { type: 'text' },
+    },
+    variant: {
+      control: { type: 'inline-radio' },
+      table: { type: { summary: 'primary' }, },
+    },
+    color: {
+      control: { type: 'inline-radio', },
+    },
+    icon: {
+      description: '등록된 svg 아이콘을 사용합니다.',
+      table: {
+        category: 'icon',
+      },
+    },
+    iconPositionRight: {
+      description: '텍스트와 함께 있는 아이콘의 경우, 아이콘의 방향을 컨트롤 합니다.',
+      table: {
+        category: 'icon',
+      },
+    },
+  }}
+/>
+
+# Button
+
+`Button`컴포넌트의 테스트 케이스
+
+
+
+<Markdown>
+  {`| 테스트번호 | Prop 명 | Props 설정 내용 | Prop 타입 | Prop 값 | 기대 결과 |
+    | -------- | -------- | -------- | ------------ | ------------ | ------------ |
+    | EMCORE-TEST-0001 | children | 버튼 텍스트 입력 | String, Number | Button | 텍스트가 있는 버튼 |
+    | EMCORE-TEST-0002 | variant | 버튼 모양 설정 | default, float, text | default | 배경이 있는 버튼 |
+    | EMCORE-TEST-0003 | variant | 버튼 모양 설정 | default, float, text | float | 테두리와 텍스트가 있는 버튼 |
+    | EMCORE-TEST-0004 | variant | 버튼 모양 설정 | default, float, text | text | 텍스트만 있는 버튼 |
+    | EMCORE-TEST-0005 | color | 버튼 컬러 테마 설정 | default, primary, danger | default | 기본 컬러 테마 버튼 |
+    | EMCORE-TEST-0006 | color | 버튼 컬러 테마 설정 | default, primary, danger | primary | 주 컬러 테마 버튼 |
+    | EMCORE-TEST-0007 | color | 버튼 컬러 테마 설정 | default, primary, danger | danger | 위험 컬러 테마 버튼 |
+    | EMCORE-TEST-0008 | icon | 아이콘 설정 | SearchIcon | React.ReactElement | 설정한 아이콘이 좌측에 들어간 버튼 |
+    | EMCORE-TEST-0009 | iconPositionRight | 버튼 모양 설정 | Boolean | true | 설정한 아이콘이 우측에 들어간 버튼 |
+    | EMCORE-TEST-0010 | - | 아이콘만 있는 버튼 | Boolean | true | 텍스트 없이 아이콘만 있는 버튼 |
+    | EMCORE-TEST-0011 | loading | 로딩 상태 버튼 | Boolean | true | 로딩 상태의 버튼 |
+    | EMCORE-TEST-0012 | disabled | 비활성화 버튼 | Boolean | true | 비활성화된 버튼 |
+    | EMCORE-TEST-0013 | block | block 태그가 된 버튼 | Boolean | true | block 태그화 해 포함된 영역의 너비를 채우는 버튼 |
+  `}
+</Markdown>
+
+
+---
+
+## children
+### EMCORE-TEST-0001
+<Canvas of={ButtonStories.Default} />
+
+
+## variant
+`variant` 속성으로 버튼의 모양을 바꿀 수 있습니다. 값으로는 `default`, `float`, `text`를 가진다. 따로 설정하지 않을 경우, default가 적용됩니다.
+
+
+### EMCORE-TEST-0002
+
+<Canvas of={ButtonStories.VariantDefault} />
+
+### EMCORE-TEST-0003
+<Canvas of={ButtonStories.VariantFloat} />
+
+### EMCORE-TEST-0004
+<Canvas of={ButtonStories.VariantText} />
+
+
+
+## color
+`color` 속성은 미리 선언된 버튼의 테마컬러를 선택할 수 있습니다. 현재 등록된 컬러 테마는 `primary`, `danger`, `default`
+
+
+### EMCORE-TEST-0005
+<Canvas of={ButtonStories.ColorPrimary} />
+
+### EMCORE-TEST-0006
+<Canvas of={ButtonStories.ColorDanger} />
+
+### EMCORE-TEST-0007
+<Canvas of={ButtonStories.ColorDefault} />
+
+
+## Icon
+`icon` 속성은 사용시 버튼에 아이콘과 함께 사용할 수 있습니다.
+### EMCORE-TEST-0008
+<Canvas of={ButtonStories.LeftIconDefault} />
+<Canvas of={ButtonStories.LeftIconFloat} />
+<Canvas of={ButtonStories.LeftIconText} />
+
+## Icon Position Right
+`icon` 속성 사용시 기본 왼쪽에 위치한 아이콘을 오른쪽으로 위치합니다.
+### EMCORE-TEST-0009
+<Canvas of={ButtonStories.RightIconDefault} />
+<Canvas of={ButtonStories.RightIconFloat} />
+<Canvas of={ButtonStories.RightIconText} />
+
+
+## Icon Only
+`icon`을 사용하며 버튼 텍스트를 입력하지 않는다면 아이콘만 있는 작은 버튼을 사용할 수 있습니다.
+### EMCORE-TEST-0010
+<Canvas of={ButtonStories.IconOnly} />
+
+
+## Loading
+`loading` 속성 사용시 버튼 클릭으로 인한 동작이 활성화 된 상태를 시각화하며 버튼이 비활성화 됩니다.
+### EMCORE-TEST-0011
+<Canvas of={ButtonStories.Loading} />
+
+
+## Disabled
+`disabled` 속성 사용시 버튼이 비활성화 됩니다.
+### EMCORE-TEST-0012
+<Canvas of={ButtonStories.Disabled} />
+
+## Block
+`block` 속성 사용시 block 태그화 되어 포함된 영역의 전체 너비를 가집니다.
+### EMCORE-TEST-0013
+<Canvas of={ButtonStories.BlockButton} />
+<Canvas of={ButtonStories.BlockLeftButton} />
+<Canvas of={ButtonStories.BlockRightButton} />

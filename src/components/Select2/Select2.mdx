@@ -1,0 +1,46 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import * as Select2Stories from './Select2.stories';
+
+<Meta title="components/Select" of={Select2Stories} />
+
+# Select2
+
+기존과 다른 조금은 더 심플한  __Select__
+
+## Default
+<Canvas of={Select2Stories.Default} />
+<Controls of={Select2Stories.Default} />
+
+Select2의 기본 UI 입니다.
+
+- `select` UI 클릭으로 옵션 목록을 여닫을 수 있습니다.
+  - 검색어가 입력되어 있는 상태에서는 클릭으로 목록을 여닫을 수 없습니다.
+  - 검색어가 입력되어 있는 상태에서는 `ESC` 또는 select 외부 영역 클릭으로 목록을 닫을 수 있습니다.
+
+- `single select`
+  - 값이 선택되면 옵션 목록이 닫힙니다.
+  - 검색이 가능한 `single select`에 값이 있을 때 검색어를 입력하면 값이 초기화 됩니다.
+
+- `multi select`
+  - 옵션목록에서 값을 선택해도 옵션 목록이 닫히지 않습니다.
+
+- 마우스로 옵션을 선택(클릭)해 값을 변경할 수 있습니다.
+- 선택된 옵션을 목록에서 다시 선택해 값을 제거할 수 있습니다.
+
+- 키보드 액션이 가능합니다.
+  - 옵션 목록이 열린 상태에서 키보드 위아래로 옵션을 포커싱할 수 있습니다.
+  - 키보드로 포커싱된 옵션이 있을 때, `Enter`로 옵션을 선택할 수 있습니다.
+  - 선택된 옵션이 포커싱 된 상태에서 다시 `Enter`를 누르면 선택된 옵션을 제거할 수 있습니다.
+  - 옵션 목록이 열린 상태에서 `ESC`를 누르면 열려있던 옵션 목록이 닫힙니다.
+  - 선택된 옵션이 있을 때, 입력된 검색어가 없다면 `Back Space`로 선택된 옵션의 맨 뒤부터 제거됩니다.
+
+---
+
+## Single Select
+<Canvas of={Select2Stories.SingleSelect} />
+
+## Multiple Select
+<Canvas of={Select2Stories.MultiValueSelect} />
+
+## Searchable
+<Canvas of={Select2Stories.Searchable} />

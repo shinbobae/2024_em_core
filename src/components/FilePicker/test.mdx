@@ -1,0 +1,47 @@
+import { Canvas, Controls, Meta, Markdown } from '@storybook/blocks';
+import * as FilePickerStories from './FilePicker.stories';
+import FilePicker from './index';
+
+<Meta title="test/FilePicker" component={FilePicker} />
+
+# FilePicker
+
+
+<Markdown>
+  {`| 테스트번호 | Prop 명 | Props 설정 내용 | Prop 타입 | Prop 값 | 기대 결과 |
+    | -------- | -------- | -------- | ------------ | ------------ | ------------ |
+    | EMCORE-TEST-0093 | children   | filePicker의 트리거 전체 임의 지정       | React.ReactNode | '' | 설정한 div 태그 표현 및 클릭으로 선택창 열기 |
+    | EMCORE-TEST-0094 | buttonText | 기본 제공되는 업로드 버튼의 텍스트만 변경   | string  |    업로드    | 지정한 텍스트로 표현       |
+    | EMCORE-TEST-0095 | accept     | 파일선택창에서 보여줄 파일 확장자 지정 가능 | string   |   image/*   | 모든 이미지 파일 노출      |
+    | EMCORE-TEST-0096 | disabled   | 파일 선택 비활성화 지정                  | Boolean  |     TRUE    | 파일선택 불가능   |
+    | EMCORE-TEST-0097 | multiple   | 파일 다중선택 지정                      | Boolean   |     TRUE    | 여러개 파일 선택 가능      |
+    | EMCORE-TEST-0098 | maxSize    | 선택 파일의 최대 용량 지정               | number    |      1      | 1MB 이상의 파일 업로드 불가 및 메시지 표현   |
+  `}
+</Markdown>
+
+<Canvas of={FilePickerStories.Default} />
+
+## children
+### EMCORE-TEST-0093
+<Canvas of={FilePickerStories.CustomChildren} />
+
+## buttontext
+### EMCORE-TEST-0094
+원하는 버튼 텍스트를 입력할 수 있습니다.
+<Canvas of={FilePickerStories.CustomButtonText} />
+
+## accept
+### EMCORE-TEST-0095
+<Canvas of={FilePickerStories.AcceptExample} />
+
+## disabled
+### EMCORE-TEST-0096
+<Canvas of={FilePickerStories.Disabled} />
+
+## multiple
+### EMCORE-TEST-0097
+<Canvas of={FilePickerStories.Multiple} />
+
+## maxSize
+### EMCORE-TEST-0098
+<Canvas of={FilePickerStories.MaxSize} />

@@ -1,0 +1,38 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import * as TagStories from './Tag.stories';
+import Tag from './index';
+
+<Meta
+  title="components/Tag"
+  component={Tag}
+/>
+
+# Tag
+
+## playground
+<Canvas of={TagStories.Default} />
+<Controls of={TagStories.Default} />
+
+## props example
+### Variant
+기본값은 `outlined` 입니다.
+<Canvas of={TagStories.Variant} />
+
+### Size
+기본값은 `medium` 입니다.
+<Canvas of={TagStories.Size} />
+
+### Theme Color
+blue ~ white 까지 등록된 팔레트, #00ff3c는 커스텀 컬러 입니다.
+
+커스텀컬러는 #000000 으로만 입력 가능합니다.
+
+<Canvas of={TagStories.ColorVariation}/>
+
+## event handler
+### onClose, onClick
+`onClose` 또는 `onClick` 을 등록하면 닫기 버튼 또는 버튼 동작을 등록할 수 있습니다.
+
+<Canvas of={TagStories.onClose} />
+<Canvas of={TagStories.onClick} />
+<Canvas of={TagStories.AllEventHandler} />
